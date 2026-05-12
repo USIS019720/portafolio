@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Ernesto Cerna Ávalos</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--g:#00ff88;--gd:#00cc6a;--gdk:#003318;--bg:#090d09;--bg2:#0d110d;--bg3:#111611;--bd:#182018;--bdb:#00ff8833;--tx:#c8ffd4;--txd:#4a7a5a;--txm:#243a2c;--red:#ff4466;--amb:#ffaa00;--blu:#00aaff;--mono:'Share Tech Mono',monospace;--sans:'Exo 2',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:15px;line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,255,136,.012) 2px,rgba(0,255,136,.012) 4px);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{border-bottom:1px solid var(--bd);padding:14px 0;position:sticky;top:0;background:rgba(9,13,9,.96);backdrop-filter:blur(8px);z-index:100}
+nav .w{display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--mono);font-size:13px;color:var(--g);letter-spacing:2px}
+.brand span{color:var(--txd)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:11px;color:var(--txd);text-decoration:none;letter-spacing:1px;transition:color .2s}
+.nav-links a:hover{color:var(--g)}
+
+/* LAYOUT */
+.w{max-width:880px;margin:0 auto;padding:0 22px;position:relative;z-index:1}
+
+/* HERO */
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--bd)}
+.tag{font-family:var(--mono);font-size:11px;color:var(--g);letter-spacing:3px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.tag::before{content:'';width:6px;height:6px;background:var(--g);border-radius:50%;flex-shrink:0;animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+h1{font-size:48px;font-weight:700;line-height:1.08;margin-bottom:6px;color:#fff}
+h1 .acc{color:var(--g)}
+.subtitle{font-family:var(--mono);font-size:13px;color:var(--txd);margin-bottom:20px;letter-spacing:.5px}
+.bio{font-size:15px;color:var(--txd);max-width:560px;line-height:1.85;margin-bottom:28px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.btn{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;padding:9px 18px;border-radius:3px;cursor:pointer;text-decoration:none;transition:all .2s;border:1px solid}
+.bp{background:var(--g);color:#020a04;border-color:var(--g);font-weight:700}
+.bp:hover{background:var(--gd)}
+.bo{background:transparent;color:var(--g);border-color:var(--bdb)}
+.bo:hover{border-color:var(--g);background:rgba(0,255,136,.05)}
+
+/* SECTION */
+section{padding:56px 0;border-bottom:1px solid var(--bd)}
+.slabel{font-family:var(--mono);font-size:10px;color:var(--g);letter-spacing:3px;margin-bottom:8px}
+.stitle{font-size:24px;font-weight:600;color:#e6ffe6;margin-bottom:28px}
+
+/* SKILLS */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.sgroup{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:16px}
+.sgt{font-family:var(--mono);font-size:10px;color:var(--g);letter-spacing:2px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--bd)}
+.sk{display:inline-block;font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:2px;margin:2px 2px 2px 0;border:1px solid}
+.tg{color:var(--g);border-color:var(--gdk);background:rgba(0,255,136,.05)}
+.tr{color:var(--red);border-color:#38101e;background:rgba(255,68,102,.05)}
+.tb{color:var(--blu);border-color:#081e2e;background:rgba(0,170,255,.05)}
+.ta{color:var(--amb);border-color:#261600;background:rgba(255,170,0,.05)}
+
+/* EXP */
+.exp-item{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:20px;margin-bottom:12px}
+.exp-item.current{border-left:3px solid var(--g)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:12px;flex-wrap:wrap}
+.exp-title{font-size:16px;font-weight:600;color:#e6ffe6}
+.exp-badge{font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:2px;white-space:nowrap}
+.bc{color:var(--g);background:rgba(0,255,136,.1);border:1px solid var(--gdk)}
+.bp2{color:var(--amb);background:rgba(255,170,0,.1);border:1px solid #261600}
+.exp-org{font-family:var(--mono);font-size:11px;color:var(--txd);margin-bottom:10px}
+.exp-list{list-style:none;padding:0}
+.exp-list li{font-size:13px;color:var(--txd);padding:3px 0 3px 14px;position:relative}
+.exp-list li::before{content:'›';position:absolute;left:0;color:var(--g)}
+
+/* PROJECTS */
+.pgrid{display:grid;gap:14px}
+.pc{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:22px;transition:border-color .2s}
+.pc:hover{border-color:var(--bdb)}
+.pc.feat{border-left:3px solid var(--g)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;gap:10px}
+.pn{font-size:16px;font-weight:600;color:#e6ffe6}
+.pbadge{font-family:var(--mono);font-size:10px;padding:3px 7px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.bsec{color:var(--red);background:rgba(255,68,102,.1);border:1px solid #38101e}
+.bprog{color:var(--blu);background:rgba(0,170,255,.1);border:1px solid #081e2e}
+.brob{color:var(--amb);background:rgba(255,170,0,.1);border:1px solid #261600}
+.bnet{color:var(--g);background:rgba(0,255,136,.1);border:1px solid var(--gdk)}
+.pdesc{font-size:13px;color:var(--txd);margin-bottom:12px;line-height:1.7}
+.ptech{display:flex;flex-wrap:wrap;gap:5px}
+.plink{font-family:var(--mono);font-size:10px;color:var(--g);text-decoration:none;border:1px solid var(--bdb);padding:3px 8px;border-radius:2px;margin-top:10px;display:inline-block;transition:all .2s}
+.plink:hover{background:rgba(0,255,136,.08);border-color:var(--g)}
+
+/* CERTS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.cc{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:16px;display:flex;gap:12px;align-items:flex-start}
+.cico{width:34px;height:34px;background:rgba(0,255,136,.07);border:1px solid var(--bdb);border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--g);flex-shrink:0}
+.cn{font-size:13px;font-weight:600;color:#e6ffe6;margin-bottom:3px}
+.ci{font-family:var(--mono);font-size:10px;color:var(--txd)}
+.cy{font-family:var(--mono);font-size:10px;color:var(--txm);margin-top:3px}
+
+/* ACHIEVEMENTS */
+.alist{display:grid;gap:10px;margin-top:24px}
+.ai{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;background:var(--bg3);border:1px solid var(--bd);border-radius:5px}
+.adot{width:7px;height:7px;background:var(--g);border-radius:50%;margin-top:5px;flex-shrink:0;box-shadow:0 0 7px var(--g)}
+.at{font-size:13px;color:var(--txd)}
+.at strong{color:#e6ffe6;font-weight:600}
+
+/* EDU */
+.edu-card{background:var(--bg3);border:1px solid var(--bd);border-left:3px solid var(--g);border-radius:5px;padding:20px}
+.edu-title{font-size:16px;font-weight:600;color:#e6ffe6;margin-bottom:4px}
+.edu-sub{font-family:var(--mono);font-size:11px;color:var(--txd);margin-bottom:12px}
+
+/* CONTACT */
+.cgr{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.citem{background:var(--bg3);border:1px solid var(--bd);border-radius:5px;padding:14px;text-align:center}
+.clbl{font-family:var(--mono);font-size:10px;color:var(--txm);letter-spacing:2px;margin-bottom:5px}
+.cval{font-family:var(--mono);font-size:12px;color:var(--g)}
+.cval a{color:var(--g);text-decoration:none}
+.cval a:hover{text-decoration:underline}
+
+/* TERMINAL */
+.term{font-family:var(--mono);font-size:11px;color:var(--txm);margin-top:32px;padding:10px 14px;background:var(--bg2);border-radius:4px;border-left:2px solid var(--g)}
+.term::before{content:'$ ';color:var(--g)}
+.cur{animation:blink 1s infinite;color:var(--g)}
+
+footer{padding:28px 0;text-align:center}
+.ft{font-family:var(--mono);font-size:10px;color:var(--txm);letter-spacing:1px}
+
+@media(max-width:600px){h1{font-size:32px}.nav-links{display:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="w">
+    <div class="brand"><span>//</span> DCERNA<span>.sec</span></div>
+    <ul class="nav-links">
+      <li><a href="#exp">experiencia</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#projects">proyectos</a></li>
+      <li><a href="#certs">certs</a></li>
+      <li><a href="#contact">contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="w">
+    <div class="tag">DISPONIBLE PARA NUEVAS OPORTUNIDADES</div>
+    <h1>David Ernesto<br><span class="acc">Cerna Ávalos</span></h1>
+    <div class="subtitle">Ingeniero en Sistemas y Redes Informáticas &nbsp;·&nbsp; Pre-especialización en Ciberseguridad</div>
+    <p class="bio">
+      Graduado de la Universidad Gerardo Barrios (2020–2025) con sólida base en redes, ciberseguridad y desarrollo de software.
+      Experiencia práctica en soporte técnico, automatización de procesos administrativos y configuración de infraestructura de red.
+      Capaz de adaptarme rápidamente, resolver problemas complejos y trabajar en equipo en entornos dinámicos.
+    </p>
+    <div class="actions">
+      <a class="btn bp" href="#projects">Ver Proyectos</a>
+      <a class="btn bo" href="#contact">Contacto</a>
+      <a class="btn bo" href="https://github.com/USIS019720" target="_blank">GitHub</a>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCIA -->
+<section id="exp">
+  <div class="w">
+    <div class="slabel">// 01 — EXPERIENCIA LABORAL</div>
+    <div class="stitle">Trayectoria Profesional</div>
+
+    <div class="exp-item current">
+      <div class="exp-header">
+        <div class="exp-title">Asistente Administrativo con Soporte Informático</div>
+        <span class="exp-badge bc">ACTUAL · 2025</span>
+      </div>
+      <div class="exp-org">Agroservicio El Campesino &nbsp;·&nbsp; Usulután, El Salvador</div>
+      <ul class="exp-list">
+        <li>Gestión de facturación, control de ventas y registros administrativos mediante sistemas informáticos</li>
+        <li>Desarrollo de soluciones de programación para automatizar procesos y optimizar tareas repetitivas</li>
+        <li>Generación de reportes mensuales de compras y ventas para control organizacional</li>
+        <li>Soporte técnico y resolución de incidencias de software y hardware</li>
+        <li>Administración y supervisión del sistema de facturación y control de operaciones</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-title">Soporte Técnico — Servicio Social</div>
+        <span class="exp-badge bp2">2023</span>
+      </div>
+      <div class="exp-org">Casa de Encuentro Juvenil Usulután &nbsp;·&nbsp; Usulután, El Salvador</div>
+      <ul class="exp-list">
+        <li>Mantenimiento preventivo y correctivo a más de 20 equipos informáticos</li>
+        <li>Soporte técnico y resolución de incidencias a usuarios</li>
+        <li>Instalación de software y configuración de redes básicas bajo entorno Windows</li>
+        <li>Diagnóstico de problemas de hardware y software mejorando la continuidad operativa</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="w">
+    <div class="slabel">// 02 — HABILIDADES</div>
+    <div class="stitle">Stack Técnico</div>
+    <div class="sg">
+
+      <div class="sgroup">
+        <div class="sgt">CIBERSEGURIDAD</div>
+        <span class="sk tr">Wireshark</span>
+        <span class="sk tr">IDS / IPS</span>
+        <span class="sk tr">Kali Linux</span>
+        <span class="sk tr">Packet Tracer</span>
+        <span class="sk tr">Análisis de Red</span>
+        <span class="sk tr">Pentesting básico</span>
+      </div>
+
+      <div class="sgroup">
+        <div class="sgt">PROGRAMACIÓN</div>
+        <span class="sk tb">Python</span>
+        <span class="sk tb">HTML / CSS</span>
+        <span class="sk tb">Bash / Scripting</span>
+        <span class="sk tb">Automatización</span>
+      </div>
+
+      <div class="sgroup">
+        <div class="sgt">REDES</div>
+        <span class="sk tg">TCP/IP</span>
+        <span class="sk tg">Cisco</span>
+        <span class="sk tg">VLANs</span>
+        <span class="sk tg">Active Directory</span>
+        <span class="sk tg">VPN</span>
+        <span class="sk tg">Firewall</span>
+      </div>
+
+      <div class="sgroup">
+        <div class="sgt">SISTEMAS & OTROS</div>
+        <span class="sk ta">Windows Server</span>
+        <span class="sk ta">Linux</span>
+        <span class="sk ta">Arduino</span>
+        <span class="sk ta">Git / GitHub</span>
+        <span class="sk ta">Soporte Técnico</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
+<section id="projects">
+  <div class="w">
+    <div class="slabel">// 03 — PROYECTOS</div>
+    <div class="stitle">Trabajo Destacado</div>
+    <div class="pgrid">
+
+      <!-- NewVote - destacado por complejidad -->
+      <div class="pc feat">
+        <div class="ph">
+          <div class="pn">NewVote — Sistema de Votación Electoral</div>
+          <span class="pbadge bprog">PROGRAMACIÓN</span>
+        </div>
+        <p class="pdesc">
+          Plataforma web completa para gestión de procesos electorales. Incluye módulos de candidatos, partidos, usuarios y votos con predicciones basadas en datos (CSV). Backend en Python con arquitectura CRUD, frontend en HTML/CSS/JS y panel de administración.
+        </p>
+        <div class="ptech">
+          <span class="sk tb">Python</span>
+          <span class="sk tb">JavaScript</span>
+          <span class="sk tb">HTML/CSS</span>
+          <span class="sk tg">MySQL</span>
+          <span class="sk ta">CSV / Predicciones</span>
+        </div>
+        <a class="plink" href="https://github.com/USIS019720/NewVote" target="_blank">→ ver en github</a>
+      </div>
+
+      <!-- ShareVote -->
+      <div class="pc">
+        <div class="ph">
+          <div class="pn">ShareVote — Plataforma de Votación</div>
+          <span class="pbadge bprog">PROGRAMACIÓN</span>
+        </div>
+        <p class="pdesc">
+          Proyecto base del sistema de votación compartida. Prototipo inicial de la arquitectura electoral con gestión de usuarios y procesos de votación en entorno de desarrollo colaborativo.
+        </p>
+        <div class="ptech">
+          <span class="sk tb">Python</span>
+          <span class="sk tb">HTML/CSS</span>
+        </div>
+        <a class="plink" href="https://github.com/USIS019720/sharevote" target="_blank">→ ver en github</a>
+      </div>
+
+      <!-- Evelyn Boutique -->
+      <div class="pc">
+        <div class="ph">
+          <div class="pn">Evelyn Boutique — Sistema de Ventas</div>
+          <span class="pbadge bprog">PROGRAMACIÓN</span>
+        </div>
+        <p class="pdesc">
+          Sistema de gestión de ventas para boutique de moda. Aplicación orientada al control de inventario, registro de clientes y procesamiento de transacciones comerciales.
+        </p>
+        <div class="ptech">
+          <span class="sk tb">Python / JS</span>
+          <span class="sk tb">HTML/CSS</span>
+          <span class="sk tg">Base de Datos</span>
+        </div>
+        <a class="plink" href="https://github.com/USIS019720/evelyn--boutique" target="_blank">→ ver en github</a>
+      </div>
+
+      <!-- Contador de Facturas -->
+      <div class="pc">
+        <div class="ph">
+          <div class="pn">Contador de Facturas</div>
+          <span class="pbadge bprog">PROGRAMACIÓN</span>
+        </div>
+        <p class="pdesc">
+          Herramienta de automatización para el conteo y gestión de facturas. Desarrollada con enfoque en la optimización de procesos contables y administrativos repetitivos.
+        </p>
+        <div class="ptech">
+          <span class="sk tb">Python</span>
+          <span class="sk ta">Automatización</span>
+        </div>
+        <a class="plink" href="https://github.com/USIS019720/Contador_Facturas" target="_blank">→ ver en github</a>
+      </div>
+
+      <!-- TRASH_INT - Robótica -->
+      <div class="pc feat">
+        <div class="ph">
+          <div class="pn">TRASH_INT — Robot de Gestión de Residuos</div>
+          <span class="pbadge brob">ROBÓTICA</span>
+        </div>
+        <p class="pdesc">
+          Proyecto de robótica inteligente orientado a la gestión y clasificación de residuos. Integra hardware y software para automatizar la detección y manejo de desechos con componentes programables.
+        </p>
+        <div class="ptech">
+          <span class="sk ta">Arduino</span>
+          <span class="sk ta">Robótica</span>
+          <span class="sk tb">Python</span>
+          <span class="sk tg">IoT</span>
+        </div>
+        <a class="plink" href="https://github.com/USIS019720/TRASH_INT" target="_blank">→ ver en github</a>
+      </div>
+
+      <!-- Ciberseguridad -->
+      <div class="pc feat">
+        <div class="ph">
+          <div class="pn">Proyecto de Ciberseguridad</div>
+          <span class="pbadge bsec">CIBERSEGURIDAD</span>
+        </div>
+        <p class="pdesc">
+          Proyecto de especialización en ciberseguridad. Análisis de vulnerabilidades, configuración de herramientas de seguridad de red y evaluación de infraestructura bajo metodologías de seguridad ofensiva y defensiva.
+        </p>
+        <div class="ptech">
+          <span class="sk tr">Wireshark</span>
+          <span class="sk tr">IDS/IPS</span>
+          <span class="sk tr">Kali Linux</span>
+          <span class="sk tg">Redes</span>
+        </div>
+        <a class="plink" href="https://drive.google.com/file/d/1XtgtAuZKCmbhXQkUcZYg1bDuJ2vyfwe-/view?usp=sharing" target="_blank">→ ver documentación</a>
+      </div>
+
+    </div>
+    <div class="term">ls ./projects | 6 proyectos encontrados &nbsp;<span class="cur">▋</span></div>
+  </div>
+</section>
+
+<!-- CERTIFICACIONES -->
+<section id="certs">
+  <div class="w">
+    <div class="slabel">// 04 — CERTIFICACIONES & LOGROS</div>
+    <div class="stitle">Credenciales</div>
+
+    <div class="cgrid">
+      <div class="cc">
+        <div class="cico">CCNA</div>
+        <div>
+          <div class="cn">CCNAv7: Introduction to Networks</div>
+          <div class="ci">Cisco Networking Academy</div>
+          <div class="cy">Módulo 1 de 3</div>
+        </div>
+      </div>
+      <div class="cc">
+        <div class="cico">CCNA</div>
+        <div>
+          <div class="cn">CCNAv7: Switching, Routing & Wireless</div>
+          <div class="ci">Cisco Networking Academy</div>
+          <div class="cy">Módulo 2 de 3</div>
+        </div>
+      </div>
+      <div class="cc">
+        <div class="cico">CCNA</div>
+        <div>
+          <div class="cn">CCNAv7: Enterprise Networking, Security & Automation</div>
+          <div class="ci">Cisco Networking Academy</div>
+          <div class="cy">Módulo 3 de 3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGROS -->
+    <div style="margin-top:30px">
+      <div class="slabel" style="margin-bottom:14px">// LOGROS ACADÉMICOS</div>
+      <div class="alist">
+        <div class="ai">
+          <div class="adot"></div>
+          <div class="at"><strong>Certificación completa CCNAv7 (3 módulos)</strong> — Completé los tres módulos del programa Cisco CCNA v7, abarcando redes, switching, routing, seguridad y automatización empresarial.</div>
+        </div>
+        <div class="ai">
+          <div class="adot"></div>
+          <div class="at"><strong>Pre-especialización en Ciberseguridad</strong> — Profundización en el área de seguridad informática dentro de la carrera, desarrollando proyecto final orientado a análisis de vulnerabilidades y defensa de redes.</div>
+        </div>
+        <div class="ai">
+          <div class="adot"></div>
+          <div class="at"><strong>Graduado Ingeniería en Sistemas y Redes Informáticas</strong> — Universidad Gerardo Barrios, generación 2020–2025, con proyectos en programación, redes, robótica y ciberseguridad.</div>
+        </div>
+        <div class="ai">
+          <div class="adot"></div>
+          <div class="at"><strong>Proyecto Robótico TRASH_INT</strong> — Desarrollo de robot inteligente para gestión de residuos, integrando hardware programable con lógica de software.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCACIÓN -->
+<section id="edu">
+  <div class="w">
+    <div class="slabel">// 05 — EDUCACIÓN</div>
+    <div class="stitle">Formación Académica</div>
+    <div class="edu-card">
+      <div class="edu-title">Ingeniería en Sistemas y Redes Informáticas</div>
+      <div class="edu-sub">Universidad Gerardo Barrios &nbsp;·&nbsp; El Salvador &nbsp;·&nbsp; 2020 – 2025 &nbsp;·&nbsp; Pre-especialización: Ciberseguridad</div>
+      <div class="ptech">
+        <span class="sk tg">Redes TCP/IP</span>
+        <span class="sk tr">Ciberseguridad</span>
+        <span class="sk tb">Programación</span>
+        <span class="sk ta">Robótica</span>
+        <span class="sk tg">Cisco / VLANs</span>
+        <span class="sk tb">Bases de Datos</span>
+        <span class="sk tr">IDS / IPS</span>
+        <span class="sk ta">Linux / Windows</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contact">
+  <div class="w">
+    <div class="slabel">// 06 — CONTACTO</div>
+    <div class="stitle">Conectemos</div>
+    <div class="cgr">
+      <div class="citem">
+        <div class="clbl">EMAIL</div>
+        <div class="cval"><a href="mailto:davidernestocernaavalos848@gmail.com">davidernestocernaavalos848<br>@gmail.com</a></div>
+      </div>
+      <div class="citem">
+        <div class="clbl">TELÉFONO</div>
+        <div class="cval"><a href="tel:+50373975770">+503 7397-5770</a></div>
+      </div>
+      <div class="citem">
+        <div class="clbl">GITHUB</div>
+        <div class="cval"><a href="https://github.com/USIS019720" target="_blank">github.com/USIS019720</a></div>
+      </div>
+      <div class="citem">
+        <div class="clbl">UBICACIÓN</div>
+        <div class="cval">Usulután, El Salvador</div>
+      </div>
+    </div>
+    <div class="term" style="margin-top:24px">ping david@cerna.sec — available for opportunities &nbsp;<span class="cur">▋</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <div class="ft">// David Ernesto Cerna Ávalos · Ing. Sistemas & Ciberseguridad · 2025</div>
+  </div>
+</footer>
+
+</body>
+</html>
